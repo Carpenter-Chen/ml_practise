@@ -13,12 +13,12 @@ from prob_trans import P as trans_prob
 
 def do_hmm(char_list):
     last_idx = len(char_list) - 1
-    status_list = range(len(char_list))
+    status_list = []
 
     all_states = ["B", "M", "E", "S"]
     for idx, char in enumerate(char_list):
-        status_list[idx] = {}
-        cur_prob = status_list[idx]
+        cur_prob = {}
+        status_list.append(cur_prob)
         for each in all_states:
             cur_prob[each] = [emit_prob[each].get(char, -20), ""]
 
